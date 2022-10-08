@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    // event.currentTarget을 사용하는 경우
+    const listener = (event) => {
+      const length = event.currentTarget.value.length;
+      const h1 = document.querySelector("h1");
+      h1.textContent = `글자 수 : ${length}`;
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const textarea = document.querySelector("textarea");
+      textarea.addEventListener("keyup", listener);
+    });
+
+    // this 키워드를 사용하는 경우 (구 문법 사용) ES6 XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    const listener = function (event) {
+      const length = this.value.length;
+      const h1 = document.querySelector("h1");
+      h1.textContent = `글자 수 : ${length}`;
+    };
+    document.addEventListener("DOMContentLoaded", () => {
+      const textarea = document.querySelector("textarea");
+      textarea.addEventListener("keyup", listener);
+    });
+  </script>
+  <body>
+    <h1></h1>
+    <textarea></textarea>
+  </body>
+</html>
