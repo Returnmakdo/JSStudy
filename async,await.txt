@@ -1,0 +1,30 @@
+async await
+
+뭐임?
+자바스크립트의 비동기 처리 패턴 중 가장 최근에 나온 문법이다. 기존의 비동기처리방식인 콜백함수와 프로미스의 단점을 보완하고
+개발자가 읽기 좋은 코드를 작성할 수 있게 도와준다.
+
+async function logName() {
+  var user = await fetchUser('domain.com/users/1');
+  if (user.id === 1) {
+    console.log(user.name);
+  }
+}
+
+fetchUser를 통해 서버를 불러올때 까지 기다린다.
+
+예외처리
+try/catch
+
+async function logTodoTitle() {
+  try {
+    var user = await fetchUser();
+    if (user.id === 1) {
+      var todo = await fetchTodo();
+      console.log(todo.title); // delectus aut autem
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
